@@ -1,0 +1,35 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+	  <TargetFramework>net6.0</TargetFramework>
+    <LangVersion>preview</LangVersion>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <WarningLevel>5</WarningLevel>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <WarningLevel>5</WarningLevel>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="6.0.12" />
+    <PackageReference Include="System.ComponentModel.Annotations" Version="5.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Fot.Common.Errors\Fot.Common.csproj" />
+    <ProjectReference Include="..\FT.Common\FT.Exchanges\FT.Exchanges.csproj" />
+    <ProjectReference Include="..\FT.Common\FT.Extending\FT.Extending.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Models\Expressions\Preset\" />
+    <Folder Include="Models\TradingView\" />
+    <Folder Include="Models\YandexDisk\" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,32 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+	  <TargetFramework>net6.0</TargetFramework>
+	  <LangVersion>preview</LangVersion>
+	  <Nullable>enable</Nullable>
+	  <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <WarningLevel>5</WarningLevel>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <WarningLevel>5</WarningLevel>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Fot.Dal\Fot.Dal.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Exchange\" />
+    <Folder Include="Instruments\SymbolLevels\" />
+    <Folder Include="Patterns\PotentialAutoIncidents\" />
+    <Folder Include="Pivots\" />
+    <Folder Include="Telegram\" />
+    <Folder Include="Positions\" />
+    <Folder Include="Socket\" />
+  </ItemGroup>
+
+</Project>

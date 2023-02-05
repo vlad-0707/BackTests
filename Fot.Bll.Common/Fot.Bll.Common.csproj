@@ -1,0 +1,53 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+	  <TargetFramework>net6.0</TargetFramework>
+	  <LangVersion>latest</LangVersion>
+	  <Nullable>enable</Nullable>
+	  <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <WarningLevel>2</WarningLevel>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <WarningLevel>2</WarningLevel>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Strategies\Algorithms\**" />
+    <EmbeddedResource Remove="Strategies\Algorithms\**" />
+    <None Remove="Strategies\Algorithms\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Fot.ApiClient\Fot.ApiClient.csproj" />
+    <ProjectReference Include="..\Fot.Dal\Fot.Dal.csproj" />
+    <ProjectReference Include="..\Fot.Dto\Fot.Dto.csproj" />
+    <ProjectReference Include="..\FT.Common\FT.TgBot\FT.TgBot.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Exceptions\Yandex\" />
+    <Folder Include="Expressions\Configs\" />
+    <Folder Include="Indicators\Atr\" />
+    <Folder Include="Mappers\Converters\" />
+    <Folder Include="Investing\" />
+    <Folder Include="Patterns\Configs\" />
+    <Folder Include="Yandex\Exceptions\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="ChartDirector.Net" Version="6.4.0" />
+    <PackageReference Include="ClosedXML" Version="0.95.4" />
+    <PackageReference Include="Microsoft.Diagnostics.Tracing.TraceEvent" Version="2.0.74" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Microsoft.Diagnostics.Tools.RuntimeClient">
+      <HintPath>..\libs\Microsoft.Diagnostics.Tools.RuntimeClient.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>

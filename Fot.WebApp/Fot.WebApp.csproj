@@ -1,0 +1,1700 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <LangVersion>preview</LangVersion>
+    <UserSecretsId>efd7b1c3-68e2-4b83-91e2-07e93412f845</UserSecretsId>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <TypeScriptJSXEmit>react</TypeScriptJSXEmit>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Hubs\CheckConnection\**" />
+    <Compile Remove="Views\RiskManagement\**" />
+    <Content Remove="Hubs\CheckConnection\**" />
+    <Content Remove="Views\RiskManagement\**" />
+    <EmbeddedResource Remove="Hubs\CheckConnection\**" />
+    <EmbeddedResource Remove="Views\RiskManagement\**" />
+    <None Remove="Hubs\CheckConnection\**" />
+    <None Remove="Views\RiskManagement\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="sys\restart_request.txt" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="sys\restart_request.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="ChartDirector.Net" Version="6.4.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="6.0.4" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="6.0.4" />
+    <PackageReference Include="Microsoft.AspNetCore.SignalR.Protocols.MessagePack" Version="6.0.6" />
+    <PackageReference Include="Microsoft.AspNetCore.SignalR.Protocols.NewtonsoftJson" Version="6.0.6" />
+    <PackageReference Include="Microsoft.CodeAnalysis.Common" Version="4.1.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.4">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.4">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.3" />
+    <PackageReference Include="NLog.Web.AspNetCore" Version="4.14.0" />
+    <PackageReference Include="NSwag.AspNetCore" Version="13.15.10" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Fot.Bll.Web\Fot.Bll.Web.csproj" />
+    <ProjectReference Include="..\Fot.Dal.MySql.Migrations\Fot.Dal.MySql.Migrations.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Update="appsettings.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="appsettings.Staging.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="configs\appsettings.Development.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="configs\appsettings.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="configs\appsettings.Production.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="configs\appsettings.Staging.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="configs\mail_config.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="configs\NLog.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\0.33a5cc728f7d0501c22c.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\0579d40b812fa2c3ffe72e5803a6e14c.cur">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\1.830ab55cbd12351b6a80.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\1.92647ec0a7beb8b2898d.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\10.f945dc8c0bbb02997910.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\100.1a1c3c422103b437ee0d.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\100.9cb8fc64c32d917b5489.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\11.4c31f833fe49e0d1542a.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\11.aa1526372126a71d9ac3.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\12.c89a787031e21aaad85e.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\13.aa76f462cdf22c2b5bc6.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\13.ababda1a11a9cff86475.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\14.ffb20cd9f8b5a4c4e50d.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\15.98c64f68058fcb618fc7.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\15.9b692b75e2fa73430724.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\16.8b65dc2e0d8b6e5041c4.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\16.cb125a744becca6719b7.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\17.8ff3b03f69b5652383d1.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\18.3140e8cb507ad2593c76.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\18.f7666ae716f7dccdf6e0.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\19.ee754f50171546186397.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\19.f9a454aaa1746ddde327.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\1df47f578aeef40dd1f2328338a133be.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\2.12a0b086824d9deeec0a.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\2.92647ec0a7beb8b2898d.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\20.1238ce46e9b14c68764e.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\20.1cc926a0ea1f6540ec97.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\21.439063aafc6127ebfec4.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\21.65b25ac3fa3ee5b90f1a.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\22.b05594996177646c314b.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\22.f7905c9be5c57c477d05.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\23.42faf707b8960bcacbd1.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\23.d87ecd582c4e614dcd94.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\24.9240f13280154f2593b7.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\24.e123b815be9a3878ae80.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\25.083c02ebef55a29a3014.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\26.21f3e6d7c13eee6ef16c.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\27.9a4ff18e370b97630a4b.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\28.55aab3e688f1b251f758.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\28.7232842b6ffb240c953b.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\29.cdd7f1044cef7f3bb39b.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\3.599e5200017e46c942da.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\3.dcab9d0c246ed6b0b454.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\30.1ff3e1eab3f351191cf0.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\30.ace041bd8d4205718cf6.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\31.6d738be4bee16109ad85.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\31.ac7b58ddc87a723ae315.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\32.af8c2ba2d40bd2a7113d.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\3293616ec0c605c7c2db25829a0a509e.woff">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\33.223bd00f975b39a20e0f.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\34.74c0351a81704a8bee4c.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\34.f315a19c17d5636af8f7.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\35.bae26a5a1fed8ae2da15.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\35.f5c189b88a72e3fb31fb.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\36.cf7fb7b7f9df50512a90.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\37.cd26e2e2872c1f76b5d9.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\38.1ce6eb9dbdab47114ee7.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\39.53d52c35a3ce0eb66a98.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\39.d72a2cf9d798a134d676.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\396b43348362fa7fe5cb2e187f2e6d78.svg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\4.617438637759b958be4d.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\40.51557ebe94a73070cfdc.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\40566afd832a155e5e370a8bd423de4b.svg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\40f9a03d174178efb12303caa9bc7cd8.woff2">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\41.25abeb98d36475604f0c.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\41.b8dbe36b4b1489c5fb25.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\42.5bd18ca8a9b555fab7d8.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\42.c3d9c677f9599b3f8b07.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\43.2e501cc4dd80f1991a02.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\43.8f39aaa0a581f98fc981.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\44.72b6ed788014aaeb1961.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\44.9985765b0d03c220b4c9.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\45.4e59ba8d1e13aa4689f4.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\46.1aff54dbc0520eb4e486.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\46.d6dd36b18c9c8edb2501.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\47.00b87b5c1c78466dedb9.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\47.cf7a8977efedcd30fc3d.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\48.054931c2af86ecf21372.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\48.5c7ddd239fb7b2b780d4.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\49.42b4170370ecd14eb7a6.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\49.8d5cba5b90176d3d2e3d.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\4a9abefd31dab7c8239e02e925aacd78.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\4fafff07d8914dc11f6d335f606ff47c.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\5.539438146be29ddcf5b1.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\50.300c3df03ca063ec03a0.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\50.f6adf25ffb2d4c3d187e.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\51.f6b58908e38f4422e977.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\52.24088bdb20ee7d658abf.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\53.18205443a9f2b1727b98.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\53.51408397fefcf0480016.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\54.d59329f6caa2916ddfb2.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\55.64e829f323b84ddffe08.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\56.81afc99e54bc9d2b6ce0.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\57.7fe07945ef5bff70080c.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\58.d0907cdd08ffabd98fc1.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\59.66e2780f8a6b97cdd23f.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\59.96633fe6a9fda61e8067.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\6.8632ed095e5ceb3cb3bc.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\6.e33b8f5095bef8aff7fd.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\60.21ded50a74dd52621afc.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\60.2c7a1d76f98e8c805b58.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\61.4364a6fe0079d0d6c373.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\62.80c82085d6a1f51f79f9.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\62.8d847250f8b16395efc0.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\63.72fd82877fe18d79b1f7.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\63.a4e303b912c9012f3aec.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\64.c61f5bf79e034c8acd30.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\64.f34eb0436ab73bdfd854.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\65.7a86e39363d3d6a4dab0.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\66.314e0c6a410940e228d1.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\66.edfc62ceb96e827ca77b.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\67.0766c87537c6d573b696.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\67.5ab9f1c33570616f8d88.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\68.61fb03ff93cbe61985da.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\68.84b4001b5c622a569dde.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\683e7a8e04465dc3fac39ed37f0789b8.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\69.54647b32a157a5621f83.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\69.7ab8cb988e6dc56faa0d.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\7.042b78113094edffe402.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\7.bbf0420d669dba982519.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\70.d1543c44223769b080c0.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\70.d9aa4d9749ab6f3945c5.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\71.06539dcdc1a2dbabe2cf.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\71.b9bb558e45cdd6666f0a.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\72.9584df9ec16784fe7a47.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\72.e50a0bd20bacbe7e7ba7.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\73.c15123ca4bd6030b6cd4.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\73.c27146ec029eda556108.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\7393f661fc7d4389ea6d4dabd2a5aeea.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\74.1c4a652897ce8a1b4180.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\74.38354a0d39b859a6b2d8.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\75.4d0da34d54f627e897e7.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\75.59ebde91fe7b7b004604.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\76.68f0561bf50592dc927b.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\76.ac43a4da3d4d5b6f146e.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\77.936093c60d857e8370c3.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\77.caf5bedee31ef0644af6.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\77a5d6e16116f4dd430d89ed1ef42fa8.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\78.0eb08beb0ddbcb393dcc.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\78.7dfdb6f5096ed76328a2.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\79.79dec51744645d57c739.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\79.8f39fd77615ec08f812d.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\7e0cc5f7d7f5151500dd60b8d6ca60a1.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\8.7910dced8fa68e131918.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\8.e66ab8f27911a033604f.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\80.a698305af0fea22e3d2b.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\80.c6bb56bdd0c6d258b01a.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\81.06dac836ce0117e9dcc8.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\81.1347d134c5289f7465d4.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\82.a7e5e177caea6264fb83.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\82.f20c731b293bca89b8ec.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\83.67078a5c07cc88276c5c.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\83.d96b2016ec1dce063c10.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\84.132e359d31cab0497a34.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\84.c3ff61e81ba5521831e2.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\85.141aaa3eb70e11706399.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\85.474f45d022d3ee3a5c51.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\86.730004fd2d9374fe1e75.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\86.f068358284cb992f14f4.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\87.008da392d49e6905a9cd.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\87.ac29ff99ac42fecc07a2.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\88.4ca689580c13c6de82e3.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\88.96967f45d1735bc64868.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\89.571d44f72438bbeb3e51.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\89.cae489fd7734d6b8e4b6.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\898929f1acdb622689e0fc0c95c8fcd0.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\9.8ab09f93a5113a634119.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\9.a60e988d06477b022597.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\90.13208287cc41b0af9858.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\90.5ed5f531f60e763f2bf5.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\91.58474eaaac241acb177a.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\91.811dba33933d226578d7.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\92.75393d2a9c6c969b7a37.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\92.9d56ab0d8cccc39f28bc.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\93.0fefdd9b22b523641578.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\93.69ae8eec1b9033468a67.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\94.317a27112e67c1d73c58.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\94.be2ad240c78d48f60166.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\95.65ce0cb01e7408bacf98.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\95.db4eb20fb98e5c54f9ed.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\96.8f574331c5f7254e658c.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\96.aeb5d7b3079da8970520.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\97.4349c6062680a5ce4b7a.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\97.f12f0e29d96e5e661d75.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\98.9233fc7add2a1b1272dc.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\98.9c85c8939af4a700b040.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\99.1738a688096c9d0b4282.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\99.d8aef69d7a7bc6b5d604.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\a6506134daec7169f68f563f084a9d41.svg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\add-compare-dialog.1e5b6a62c7f4b202790c.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\ar-tv-chart.c7e6d52b.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\0.33a5cc728f7d0501c22c.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\0579d40b812fa2c3ffe72e5803a6e14c.cur">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\1.830ab55cbd12351b6a80.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\1.92647ec0a7beb8b2898d.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\10.f945dc8c0bbb02997910.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\100.1a1c3c422103b437ee0d.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\100.9cb8fc64c32d917b5489.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\11.4c31f833fe49e0d1542a.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\11.aa1526372126a71d9ac3.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\12.c89a787031e21aaad85e.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\13.aa76f462cdf22c2b5bc6.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\13.ababda1a11a9cff86475.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\14.ffb20cd9f8b5a4c4e50d.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\15.98c64f68058fcb618fc7.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\15.9b692b75e2fa73430724.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\16.8b65dc2e0d8b6e5041c4.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\16.cb125a744becca6719b7.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\17.8ff3b03f69b5652383d1.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\18.3140e8cb507ad2593c76.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\18.f7666ae716f7dccdf6e0.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\19.ee754f50171546186397.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\19.f9a454aaa1746ddde327.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\1df47f578aeef40dd1f2328338a133be.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\2.12a0b086824d9deeec0a.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\2.92647ec0a7beb8b2898d.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\20.1238ce46e9b14c68764e.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\20.1cc926a0ea1f6540ec97.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\21.439063aafc6127ebfec4.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\21.65b25ac3fa3ee5b90f1a.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\22.b05594996177646c314b.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\22.f7905c9be5c57c477d05.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\23.42faf707b8960bcacbd1.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\23.d87ecd582c4e614dcd94.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\24.9240f13280154f2593b7.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\24.e123b815be9a3878ae80.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\25.083c02ebef55a29a3014.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\26.21f3e6d7c13eee6ef16c.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\27.9a4ff18e370b97630a4b.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\28.55aab3e688f1b251f758.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\28.7232842b6ffb240c953b.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\29.cdd7f1044cef7f3bb39b.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\3.599e5200017e46c942da.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\3.dcab9d0c246ed6b0b454.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\30.1ff3e1eab3f351191cf0.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\30.ace041bd8d4205718cf6.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\31.6d738be4bee16109ad85.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\31.ac7b58ddc87a723ae315.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\32.af8c2ba2d40bd2a7113d.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\3293616ec0c605c7c2db25829a0a509e.woff">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\33.223bd00f975b39a20e0f.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\34.74c0351a81704a8bee4c.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\34.f315a19c17d5636af8f7.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\35.bae26a5a1fed8ae2da15.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\35.f5c189b88a72e3fb31fb.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\36.cf7fb7b7f9df50512a90.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\37.cd26e2e2872c1f76b5d9.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\38.1ce6eb9dbdab47114ee7.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\39.53d52c35a3ce0eb66a98.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\39.d72a2cf9d798a134d676.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\396b43348362fa7fe5cb2e187f2e6d78.svg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\4.617438637759b958be4d.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\40.51557ebe94a73070cfdc.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\40566afd832a155e5e370a8bd423de4b.svg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\40f9a03d174178efb12303caa9bc7cd8.woff2">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\41.25abeb98d36475604f0c.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\41.b8dbe36b4b1489c5fb25.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\42.5bd18ca8a9b555fab7d8.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\42.c3d9c677f9599b3f8b07.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\43.2e501cc4dd80f1991a02.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\43.8f39aaa0a581f98fc981.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\44.72b6ed788014aaeb1961.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\44.9985765b0d03c220b4c9.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\45.4e59ba8d1e13aa4689f4.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\46.1aff54dbc0520eb4e486.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\46.d6dd36b18c9c8edb2501.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\47.00b87b5c1c78466dedb9.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\47.cf7a8977efedcd30fc3d.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\48.054931c2af86ecf21372.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\48.5c7ddd239fb7b2b780d4.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\49.42b4170370ecd14eb7a6.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\49.8d5cba5b90176d3d2e3d.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\4a9abefd31dab7c8239e02e925aacd78.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\4fafff07d8914dc11f6d335f606ff47c.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\5.539438146be29ddcf5b1.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\50.300c3df03ca063ec03a0.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\50.f6adf25ffb2d4c3d187e.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\51.f6b58908e38f4422e977.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\52.24088bdb20ee7d658abf.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\53.18205443a9f2b1727b98.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\53.51408397fefcf0480016.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\54.d59329f6caa2916ddfb2.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\55.64e829f323b84ddffe08.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\56.81afc99e54bc9d2b6ce0.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\57.7fe07945ef5bff70080c.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\58.d0907cdd08ffabd98fc1.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\59.66e2780f8a6b97cdd23f.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\59.96633fe6a9fda61e8067.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\6.8632ed095e5ceb3cb3bc.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\6.e33b8f5095bef8aff7fd.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\60.21ded50a74dd52621afc.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\60.2c7a1d76f98e8c805b58.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\61.4364a6fe0079d0d6c373.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\62.80c82085d6a1f51f79f9.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\62.8d847250f8b16395efc0.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\63.72fd82877fe18d79b1f7.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\63.a4e303b912c9012f3aec.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\64.c61f5bf79e034c8acd30.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\64.f34eb0436ab73bdfd854.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\65.7a86e39363d3d6a4dab0.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\66.314e0c6a410940e228d1.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\66.edfc62ceb96e827ca77b.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\67.0766c87537c6d573b696.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\67.5ab9f1c33570616f8d88.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\68.61fb03ff93cbe61985da.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\68.84b4001b5c622a569dde.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\683e7a8e04465dc3fac39ed37f0789b8.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\69.54647b32a157a5621f83.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\69.7ab8cb988e6dc56faa0d.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\7.042b78113094edffe402.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\7.bbf0420d669dba982519.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\70.d1543c44223769b080c0.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\70.d9aa4d9749ab6f3945c5.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\71.06539dcdc1a2dbabe2cf.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\71.b9bb558e45cdd6666f0a.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\72.9584df9ec16784fe7a47.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\72.e50a0bd20bacbe7e7ba7.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\73.c15123ca4bd6030b6cd4.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\73.c27146ec029eda556108.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\7393f661fc7d4389ea6d4dabd2a5aeea.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\74.1c4a652897ce8a1b4180.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\74.38354a0d39b859a6b2d8.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\75.4d0da34d54f627e897e7.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\75.59ebde91fe7b7b004604.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\76.68f0561bf50592dc927b.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\76.ac43a4da3d4d5b6f146e.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\77.936093c60d857e8370c3.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\77.caf5bedee31ef0644af6.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\77a5d6e16116f4dd430d89ed1ef42fa8.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\78.0eb08beb0ddbcb393dcc.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\78.7dfdb6f5096ed76328a2.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\79.79dec51744645d57c739.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\79.8f39fd77615ec08f812d.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\7e0cc5f7d7f5151500dd60b8d6ca60a1.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\8.7910dced8fa68e131918.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\8.e66ab8f27911a033604f.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\80.a698305af0fea22e3d2b.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\80.c6bb56bdd0c6d258b01a.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\81.06dac836ce0117e9dcc8.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\81.1347d134c5289f7465d4.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\82.a7e5e177caea6264fb83.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\82.f20c731b293bca89b8ec.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\83.67078a5c07cc88276c5c.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\83.d96b2016ec1dce063c10.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\84.132e359d31cab0497a34.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\84.c3ff61e81ba5521831e2.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\85.141aaa3eb70e11706399.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\85.474f45d022d3ee3a5c51.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\86.730004fd2d9374fe1e75.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\86.f068358284cb992f14f4.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\87.008da392d49e6905a9cd.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\87.ac29ff99ac42fecc07a2.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\88.4ca689580c13c6de82e3.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\88.96967f45d1735bc64868.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\89.571d44f72438bbeb3e51.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\89.cae489fd7734d6b8e4b6.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\898929f1acdb622689e0fc0c95c8fcd0.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\9.8ab09f93a5113a634119.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\9.a60e988d06477b022597.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\90.13208287cc41b0af9858.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\90.5ed5f531f60e763f2bf5.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\91.58474eaaac241acb177a.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\91.811dba33933d226578d7.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\92.75393d2a9c6c969b7a37.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\92.9d56ab0d8cccc39f28bc.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\93.0fefdd9b22b523641578.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\93.69ae8eec1b9033468a67.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\94.317a27112e67c1d73c58.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\94.be2ad240c78d48f60166.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\95.65ce0cb01e7408bacf98.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\95.db4eb20fb98e5c54f9ed.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\96.8f574331c5f7254e658c.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\96.aeb5d7b3079da8970520.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\97.4349c6062680a5ce4b7a.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\97.f12f0e29d96e5e661d75.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\98.9233fc7add2a1b1272dc.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\98.9c85c8939af4a700b040.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\99.1738a688096c9d0b4282.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\99.d8aef69d7a7bc6b5d604.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\a6506134daec7169f68f563f084a9d41.svg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\add-compare-dialog.1e5b6a62c7f4b202790c.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\c9653f735b42cd4bff0ba442c742ba82.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\change-interval-dialog.caa174717fc396f9b67f.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\chart-bottom-toolbar.759ca7fcec74eda8d35f.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\chart-event-hint.b991f95780e28b5496fd.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\chart-widget-gui.8fea1fddf835f8566ae8.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\clipboard.9880cc55187bd8d121c8.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\context-menu-renderer.76ca17292106f4b11312.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\create-dialog.65ca5bcba7bff1ec44e0.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\currency-label-menu.f977730d6946c921af76.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\custom-intervals-add-dialog.6b53149d1a7d398e5a91.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\dialogs-core.a032f8a90410cefb4e1b.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\dialogs-core.b6b60b480470dd5c7de6.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\drawing-toolbar.f58e9895ed9c22d60302.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\ed68e83c16f77203e73dbc4c3a7c7fa1.cur">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\export-data.5132a40922a989fd9cf1.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\f55394b616ed1ae9462c37daab941d93.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\fdbb9f3cb0365a7ab5cad76bff0b3e2b.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\floating-toolbars.9fdd4b41b10328fddb90.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\full-tooltips-popup.d34319a9e09f20cc8627.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\general-chart-properties-dialog.f1cc2ce460af67d5d713.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\general-property-page.9ca156e01ab92a2ed174.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\go-to-date-dialog-impl.1370a3199c6373c9edfe.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\hammerjs.ff10b604e9e25e94da0b.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\header-toolbar.ebdb76ae9da85a653bf7.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\lazy-jquery-ui.0cbc0049edf3f26675e5.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\lazy-velocity.f745f9f6a15d11d931e6.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\library.83b78f9d405377ddcb47.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\library.a3625cc787c9253d465d.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\line-tools-icons.0a525243075f1276ad0f.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\load-chart-dialog.d2138f72669c4dfa778b.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\lt-pane-views.2645d052637fddd40f33.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\lt-property-pages-with-definitions.98760112712778ec98f7.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\manage-drawings-dialog.9450fd24bf00456695f7.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\new-confirm-inputs-dialog.d081955161b0250c75dd.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\new-edit-object-dialog.a26312e2b543b355405e.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\object-tree-dialog.8be0ef3d955c774183d8.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\react.25613d055f697ecb9163.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\redux.84206e9a62bc96eed4bf.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\restricted-toolset.6d1d95c71558d31f58c6.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\runtime.cf5f4c5a6ccc1dbf7b05.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\series-icons-map.de0a18385696a000d0b6.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\series-pane-views.6b3fb6db03d5aeb06681.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\show-theme-save-dialog.a8e09ad79862a1b8d899.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\simple-dialog.6a3fe4408f887cc01c54.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\source-properties-editor.f7979067b882eb5b875a.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\study-market.bc7a9b89c5f9b6205d20.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\study-pane-views.83ac16646415e6300ac0.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\study-property-pages-with-definitions.84dce5081c63d2d7cc7e.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\study-template-dialog.24f49e5d48159042440c.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\symbol-info-dialog-impl.8e70b334c3630d73b212.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\symbol-search-dialog.6e7717d85d7d91bf0f20.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\symbolsearch.19851b5e34fded86a21c.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\take-chart-image-dialog-impl.857edc74f5863b18fd74.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\bundles\vendors.11f3a4427f5c8478ce87.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\c9653f735b42cd4bff0ba442c742ba82.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\change-interval-dialog.caa174717fc396f9b67f.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\chart-bottom-toolbar.759ca7fcec74eda8d35f.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\chart-event-hint.b991f95780e28b5496fd.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\chart-widget-gui.8fea1fddf835f8566ae8.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\charting_library.standalone.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\clipboard.9880cc55187bd8d121c8.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\context-menu-renderer.76ca17292106f4b11312.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\create-dialog.65ca5bcba7bff1ec44e0.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\cs-tv-chart.c7e6d52b.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\currency-label-menu.f977730d6946c921af76.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\custom-intervals-add-dialog.6b53149d1a7d398e5a91.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\da_DK-tv-chart.c7e6d52b.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\de-tv-chart.c7e6d52b.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\dialogs-core.a032f8a90410cefb4e1b.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\dialogs-core.b6b60b480470dd5c7de6.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\drawing-toolbar.f58e9895ed9c22d60302.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\ed68e83c16f77203e73dbc4c3a7c7fa1.cur">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\el-tv-chart.c7e6d52b.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\en-tv-chart.c7e6d52b.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\es-tv-chart.c7e6d52b.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\et_EE-tv-chart.c7e6d52b.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\export-data.5132a40922a989fd9cf1.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\f55394b616ed1ae9462c37daab941d93.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\fa-tv-chart.c7e6d52b.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\fdbb9f3cb0365a7ab5cad76bff0b3e2b.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\floating-toolbars.9fdd4b41b10328fddb90.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\fr-tv-chart.c7e6d52b.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\full-tooltips-popup.d34319a9e09f20cc8627.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\general-chart-properties-dialog.f1cc2ce460af67d5d713.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\general-property-page.9ca156e01ab92a2ed174.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\go-to-date-dialog-impl.1370a3199c6373c9edfe.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\hammerjs.ff10b604e9e25e94da0b.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\header-toolbar.ebdb76ae9da85a653bf7.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\he_IL-tv-chart.c7e6d52b.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\hu_HU-tv-chart.c7e6d52b.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\id_ID-tv-chart.c7e6d52b.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\it-tv-chart.c7e6d52b.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\ja-tv-chart.c7e6d52b.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\ko-tv-chart.c7e6d52b.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\lazy-jquery-ui.0cbc0049edf3f26675e5.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\lazy-velocity.f745f9f6a15d11d931e6.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\library.83b78f9d405377ddcb47.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\library.a3625cc787c9253d465d.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\line-tools-icons.0a525243075f1276ad0f.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\load-chart-dialog.d2138f72669c4dfa778b.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\lt-pane-views.2645d052637fddd40f33.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\lt-property-pages-with-definitions.98760112712778ec98f7.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\manage-drawings-dialog.9450fd24bf00456695f7.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\ms_MY-tv-chart.c7e6d52b.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\new-confirm-inputs-dialog.d081955161b0250c75dd.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\new-edit-object-dialog.a26312e2b543b355405e.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\nl_NL-tv-chart.c7e6d52b.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\no-tv-chart.c7e6d52b.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\object-tree-dialog.8be0ef3d955c774183d8.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\package.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\pl-tv-chart.c7e6d52b.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\pt-tv-chart.c7e6d52b.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\react.25613d055f697ecb9163.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\redux.84206e9a62bc96eed4bf.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\restricted-toolset.6d1d95c71558d31f58c6.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\ro-tv-chart.c7e6d52b.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\ru-tv-chart.c7e6d52b.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\runtime.cf5f4c5a6ccc1dbf7b05.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\series-icons-map.de0a18385696a000d0b6.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\series-pane-views.6b3fb6db03d5aeb06681.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\show-theme-save-dialog.a8e09ad79862a1b8d899.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\simple-dialog.6a3fe4408f887cc01c54.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\sk_SK-tv-chart.c7e6d52b.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\source-properties-editor.f7979067b882eb5b875a.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\study-market.bc7a9b89c5f9b6205d20.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\study-pane-views.83ac16646415e6300ac0.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\study-property-pages-with-definitions.84dce5081c63d2d7cc7e.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\study-template-dialog.24f49e5d48159042440c.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\sv-tv-chart.c7e6d52b.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\symbol-info-dialog-impl.8e70b334c3630d73b212.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\symbol-search-dialog.6e7717d85d7d91bf0f20.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\symbolsearch.19851b5e34fded86a21c.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\take-chart-image-dialog-impl.857edc74f5863b18fd74.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\th-tv-chart.c7e6d52b.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\tr-tv-chart.c7e6d52b.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\vendors.11f3a4427f5c8478ce87.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\vi-tv-chart.c7e6d52b.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\zh-tv-chart.c7e6d52b.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\charting_library\zh_TW-tv-chart.c7e6d52b.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\vendor\datafeeds\bundle.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\bundle\wepapp.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\favicon.ico">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Controllers\DotnetCounter\" />
+    <Folder Include="Controllers\Expressions\" />
+    <Folder Include="Controllers\TradingView\" />
+    <Folder Include="Controllers\Telegram\" />
+    <Folder Include="Scripts\Site\components\accounts\" />
+    <Folder Include="Scripts\Site\components\admin\services\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="System.Windows.Forms.Primitives">
+      <HintPath>C:\Program Files\dotnet\packs\Microsoft.WindowsDesktop.App.Ref\6.0.0\ref\net6.0\System.Windows.Forms.Primitives.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  <ProjectExtensions><VisualStudio><UserProperties /></VisualStudio></ProjectExtensions>
+
+  <PropertyGroup Condition="'$(Configuration)' == 'Debug'">
+    <TypeScriptTarget>ES5</TypeScriptTarget>
+    <TypeScriptJSXEmit>React</TypeScriptJSXEmit>
+    <TypeScriptModuleKind />
+    <TypeScriptCompileOnSaveEnabled>False</TypeScriptCompileOnSaveEnabled>
+    <TypeScriptNoImplicitAny>False</TypeScriptNoImplicitAny>
+    <TypeScriptRemoveComments>False</TypeScriptRemoveComments>
+    <TypeScriptOutFile />
+    <TypeScriptOutDir />
+    <TypeScriptGeneratesDeclarations>False</TypeScriptGeneratesDeclarations>
+    <TypeScriptNoEmitOnError>True</TypeScriptNoEmitOnError>
+    <TypeScriptSourceMap>True</TypeScriptSourceMap>
+    <TypeScriptMapRoot />
+    <TypeScriptSourceRoot />
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <WarningLevel>5</WarningLevel>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <WarningLevel>5</WarningLevel>
+  </PropertyGroup>
+
+  <Target Name="PreBuild" BeforeTargets="PreBuildEvent">
+    <Exec Command="if not exist &quot;wwwroot\bundle&quot; mkdir &quot;wwwroot\bundle&quot;&#xD;&#xA;if not exist &quot;wwwroot\vendor&quot; mkdir &quot;wwwroot\vendor&quot;&#xD;&#xA;if not exist &quot;wwwroot\vendor\datafeeds&quot; mkdir &quot;wwwroot\vendor\datafeeds&quot;&#xD;&#xA;if not exist &quot;wwwroot\vendor\charting_library&quot; mkdir &quot;wwwroot\vendor\charting_library&quot;&#xD;&#xA;if not exist &quot;wwwroot\vendor\charting_library\bundles&quot; mkdir &quot;wwwroot\vendor\charting_library\bundles&quot;&#xD;&#xA;&#xD;&#xA;copy ..\TvCharts\charting_library\charting_library.standalone.js wwwroot\vendor\charting_library&#xD;&#xA;copy ..\TvCharts\charting_library\*.html wwwroot\vendor\charting_library&#xD;&#xA;copy ..\TvCharts\charting_library\bundles wwwroot\vendor\charting_library\bundles&#xD;&#xA;copy ..\TvCharts\datafeeds\udf\dist\bundle.js wwwroot\vendor\datafeeds\bundle.js" />
+  </Target>
+	
+</Project>

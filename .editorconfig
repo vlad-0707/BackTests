@@ -1,0 +1,17 @@
+root=true
+# editorconfig.org
+
+[*]
+tab_width=3
+indent_size=3
+indent_style=tab
+end_of_line=crlf
+charset=utf-8
+trim_trailing_whitespace=true
+insert_final_newline=true
+
+# ReSharper properties
+resharper_csharp_use_indent_from_vs=true
+
+[*.md]
+trim_trailing_whitespace=false

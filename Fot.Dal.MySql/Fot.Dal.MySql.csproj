@@ -1,0 +1,34 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+	  <TargetFramework>net6.0</TargetFramework>
+    <LangVersion>preview</LangVersion>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <WarningLevel>5</WarningLevel>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <WarningLevel>5</WarningLevel>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Dapper" Version="2.0.123" />
+    <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="6.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Fot.Dal\Fot.Dal.csproj" />
+    <ProjectReference Include="..\FT.Common\FT.Extending\FT.Extending.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="EntityTypeConfigurations\Expressions\Preset\" />
+    <Folder Include="EntityTypeConfigurations\TradingView\" />
+    <Folder Include="EntityTypeConfigurations\Patterns\Alerts\" />
+    <Folder Include="EntityTypeConfigurations\YandexDisk\" />
+  </ItemGroup>
+</Project>
